@@ -1,0 +1,34 @@
+.calendar__container {
+    background-color: var(--cor-primaria);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar__container__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-secundaria);
+    border-radius: 1rem 1rem 0 0 ;
+    padding: 1rem 1rem 0rem 1rem;
+    width: 60%;
+    height: 2rem;
+    margin: 0;
+}
+
+.week__calendar__container__days {
+    background-color: var(--cor-secundaria);
+    border-radius: 0 0 1rem 1rem;
+    padding: 1rem;
+    width: 60%;
+    height: 9rem;
+    border: 1rem;
+}
+
+.week__calendar__container__days__boxes{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    grid-template-rows: repeat(1, 2fr); 
+}

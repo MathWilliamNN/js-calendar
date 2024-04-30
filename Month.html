@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAgenda</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+</head>
+<body>
+    
+    <header class = "header__container">
+        <div class="header__container__home">
+            <img class = "header__container__home__logo"src="./Images/logo.png" alt="Logo do MyAgenda">
+            <h2 class = "header__container__home__title">MyAgenda</h2>
+        </div>
+
+        <div class="header__container__ViewStyleSwitch">
+            <h2 class="header__container__ViewStyleSwitch__text"> Escolha o tipo de visualização</h2>
+            <div class="header__container__ViewStyleSwitch__buttons">
+                <a class="header__container__ViewStyleSwitch__buttons__button" href="Month.html">Mês</a>
+                <a class="header__container__ViewStyleSwitch__buttons__button" href="Week.html">Semana</a>
+                <a class="header__container__ViewStyleSwitch__buttons__button" href="Day.html">Dia</a>
+            </div>
+        </div>
+
+        <div class="header__container__search">
+            <img class="header__container__search__icon" src="./Images/search_icon.png" alt="Imagem de lupa de pesquisa">
+            <input type="search" class="header__container__search__searchbox" placeholder="Qual evento deseja encontrar?">
+        </div>
+    </header>
+
+    <section id = "eventInput" class="calendar__event__input">
+        <div>
+            <h2 class="calendar__event__input__title"> Insira os dados do evento</h2>
+            <div class="calendar__event__inputs">
+                <input class="calendar__event__input__text" id="eventDescriptionInput" placeholder=" Descrição do evento"/>
+                <input class="calendar__event__input__text" id="eventTimeInput" placeholder=" Horário do evento. Ex: 15:00"/>
+                <input class="calendar__event__input__text" id="eventDurationInput" placeholder=" Duração do evento (h)"/>
+            </div>
+        </div>
+        <div class="calendar__event__input__buttons">
+            <button  id="buttonCancel"> Cancelar</button>
+            <button  id="buttonSave"> Salvar</button>
+        </div>
+    </section>
+
+    <section id="eventEdit" class="calendar__event__edit">
+        <h2 class="calendar__event__input__title">Deseja editar ou cancelar o evento?</h2>
+        <h3 id="eventData" class="calendar__event__input__data"> Teste <br> Inicio: bla bla <br> Duracao : bla bla</h3>
+        <div class="calendar__event__input__buttons">
+            <button  id="buttonEdit"> Editar</button>
+            <button  id="buttonDelete"> Cancelar</button>
+        </div>
+    </section>
+    
+    <div id="backdrop"></div>
+    
+
+    <section class="calendar__container">
+        <div class="calendar__container__header">
+            <h2 class="calendar__container__header__previous" id="button__previous__month">Previous</h2>
+            <h2 class="calendar__container__header__month" id="header__m&y"></h2>
+            <h2 class="calendar__container__header__next" id="button__next__month">Next</h2>
+        </div>
+        <div class="calendar__container__days">
+            <ul class="calendar__container__weekdays" id="calendar__weekdays">
+            </ul>
+            <ul class="calendar__container__days__boxes" id="calendar__days">
+            </ul>
+        </div>
+
+    </section>
+
+    <script src="./Scripts/month_generator.js"></script>
+    <script src="./Scripts/main.js"></script>
+</body>
+</html>

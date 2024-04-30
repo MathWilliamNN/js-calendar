@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAgenda</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+</head>
+<body>
+    <header class = "header__container">
+
+        <div class="header__container__home">
+            <img class = "header__container__home__logo"src="./Images/logo.png" alt="Logo do MyAgenda">
+            <h2 class = "header__container__home__title">MyAgenda</h2>
+        </div>
+
+        <div class="header__container__ViewStyleSwitch">
+            <h2 class="header__container__ViewStyleSwitch__text"> Escolha o tipo de visualização</h2>
+            <div class="header__container__ViewStyleSwitch__buttons">
+                <a class="header__container__ViewStyleSwitch__buttons__button" href="Month.html">Mês</a>
+                <a class="header__container__ViewStyleSwitch__buttons__button" href="Week.html">Semana</a>
+                <a class="header__container__ViewStyleSwitch__buttons__button" href="Day.html">Dia</a>
+            </div>
+        </div>
+
+        <div class="header__container__search">
+            <img class="header__container__search__icon" src="./Images/search_icon.png" alt="Imagem de lupa de pesquisa">
+            <input type="search" class="header__container__search__searchbox" placeholder="Qual evento deseja encontrar?">
+        </div>
+
+    </header>
+
+    <section class="calendar__container">
+        <div class="calendar__container__header">
+            <h2 class="calendar__container__header__previous" id="button__previous__month">Previous</h2>
+            <h2 class="calendar__container__header__month" id="header__week"></h2>
+            <h2 class="calendar__container__header__next" id="button__next__month">Next</h2>
+        </div> 
+        <div class="week__calendar__container__days">
+            <ul class="calendar__container__weekdays" id="week__calendar__weekdays">
+            </ul>
+            <ul class="week__calendar__container__days__boxes" id="week__calendar__days">
+            </ul>
+        </div>
+    </section>
+    
+</body>
+<script src="./Scripts/week_generator.js"></script>
+<!-- <script src="./Scripts/main.js"></script> -->
+</html>
