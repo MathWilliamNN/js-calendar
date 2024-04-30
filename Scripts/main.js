@@ -15,8 +15,6 @@ const buttonEdit = document.getElementById('buttonEdit');
 
 let eventos = new Map();
 
-// ano.mes.dia
-
 
 const todayDate = new Date();
 let todayMonth = todayDate.getMonth() 
