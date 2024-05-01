@@ -14,7 +14,8 @@ const buttonDelete = document.getElementById('buttonDelete');
 const buttonEdit = document.getElementById('buttonEdit');
 
 let eventos = new Map();
-
+let notification;
+let resultado;
 
 const todayDate = new Date();
 let todayMonth = todayDate.getMonth() 
@@ -56,8 +57,8 @@ buttonNextMonth.addEventListener('click', function() {
 
 calendarDaysButton.addEventListener('click', function() {
 
-    var resultado = event.target.getAttribute('data-boxnumber');
-    let notification = document.getElementById('notification__' + resultado);
+    resultado = event.target.getAttribute('data-boxnumber');
+    notification = document.getElementById('notification__' + resultado);
     key = todayYear + '.'+ todayMonth + '.' + resultado;
 
 
@@ -68,42 +69,34 @@ calendarDaysButton.addEventListener('click', function() {
         backDrop.style.display = 'block';
         eventEdit.style.display = 'block';
         }
-    
-    buttonCancel.addEventListener('click', function() {
-        backDrop.style.display = 'none';
-        eventInput.style.display = 'none';
-    }); 
+});
 
-
-    buttonSave.addEventListener('click', function() {
-        console.log("inicio save " + resultado);
-        let notification = document.getElementById('notification__' + resultado);
-        createEvent(notification);
-        backDrop.style.display = 'none';
-        eventInput.style.display = 'none';
-        
-
-        // resultado = null;
-    });
-
-    buttonEdit.addEventListener('click', function() {
-        eventEdit.style.display = 'none';
-        eventInput.style.display = 'block';
-    });
-
-    buttonDelete.addEventListener('click', function() {
-        console.log("Delete = " + resultado);
-        notification = document.getElementById('notification__' + resultado);
-        notification.classList.add('empty');
-        eventos.delete(key);
-        backDrop.style.display = 'none';
-        eventEdit.style.display = 'none';
-    });
-
+buttonSave.addEventListener('click', function() {
+    console.log("inicio save " + resultado);
+    let notification = document.getElementById('notification__' + resultado);
+    createEvent(notification);
+    backDrop.style.display = 'none';
+    eventInput.style.display = 'none';
     
 });
 
+buttonEdit.addEventListener('click', function() {
+    eventEdit.style.display = 'none';
+    eventInput.style.display = 'block';
+});
 
+buttonDelete.addEventListener('click', function() {
+    notification = document.getElementById('notification__' + resultado);
+    notification.classList.add('empty');
+    eventos.delete(key);
+    backDrop.style.display = 'none';
+    eventEdit.style.display = 'none';
+});
+
+buttonCancel.addEventListener('click', function() {
+    backDrop.style.display = 'none';
+    eventInput.style.display = 'none';
+}); 
 
 
 function setCalendar(month, year) {
@@ -167,8 +160,17 @@ function addExistingEvents(month, year) {
 
 function createEvent(notification) {
     eventTitle = document.getElementById('eventDescriptionInput').value;
+    if (eventTitle == "") {
+        eventTitle = "Evento sem descrição";  
+    }
     eventTime = document.getElementById('eventTimeInput').value;
+    if (eventTime == "") {
+        eventTime = "--:--";
+    }
     eventDuration = document.getElementById('eventDurationInput').value;
+    if(eventDuration == "") {
+        eventDuration = "- ";
+    }
     value = eventTitle + '\nInício: ' + eventTime + '\nDuração: ' + eventDuration + 'h';
     eventos.set(key, value);
     notification.classList.remove('empty');
